@@ -26,12 +26,6 @@ module.exports = {
     // options below to some value.
     //
     development: {
-      host: "local-node",
-      port: 8545,
-      network_id: "*", // match any network
-    },
-
-    ganache: {
       network_id: "*",
       host: '127.0.0.1',
       port: 9545
