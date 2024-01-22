@@ -21,7 +21,7 @@ contract Destruct {
         // if deposit amount > tokens amount call selfdestruct
     } */
 
-    function destruct(address payable recepient) external onlyOwner() {
+    function destroy(address payable recepient) external onlyOwner() {
         selfdestruct(recepient);
         
     }  
