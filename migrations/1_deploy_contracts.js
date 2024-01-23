@@ -10,8 +10,6 @@ async function getAccount(id) {
 
 module.exports = async function (deployer, network) {
 
-    if (network == "ganache") {
-
         var owner = getAccount(0);
 
         console.log("attempting deploy");
@@ -19,5 +17,4 @@ module.exports = async function (deployer, network) {
         await deployer.deploy(Destruct).then(function () {
             console.log("Destruct contract was deployed at address: " + Destruct.address);
         });
-    } 
 };
