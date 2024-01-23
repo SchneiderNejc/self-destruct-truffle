@@ -1,6 +1,6 @@
 var Destruct = artifacts.require("./Destruct.sol");
 var GLDToken = artifacts.require("./GLDToken.sol");
-
+var GameNft = artifacts.require("./GameNft.sol");
 
 var initSupply = 10^6;
 
@@ -22,7 +22,11 @@ module.exports = async function (deployer, network) {
             console.log("Destruct contract was deployed at address: " + Destruct.address);
         });
 
-         await deployer.deploy(GLDToken, initSupply).then(function () {
+        await deployer.deploy(GLDToken, initSupply).then(function () {
              console.log("GLDToken contract was deployed at address: " + GLDToken.address);
+        });
+
+        await deployer.deploy(GameNft).then(function () {
+            console.log("GameNft contract was deployed at address: " + GameNft.address);
         });
 };
