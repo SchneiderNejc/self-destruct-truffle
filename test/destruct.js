@@ -46,9 +46,24 @@ contract("Self Destruct", async accounts => {
     });
 
 
+    xit("contract can receive tokens and nfts", async () => {
 
-    it("contract successfully deployed", async () => {
-        await destruct.destroy(owner, { from: owner });
+        let tokensToSend = 1000;
+        let nftsToSend = 1;
+
+        for (let i = 0; i < nftsToSend; i++) {
+            // may need to approve first. Do approveForAll above the loop.
+            await nft.transfer(destruct.address, i+1); //id starts with 1?
+        }
+
+        await token.transfer(destruct.address, tokensTosend);
+
+        destructTokenBalance = parseInt(await destruct.balanceOf(owner));
+        destructNftsBalance = parseInt(await destruct.balanceOf(owner));
+        //ownerNftBalance
+        assert.equal(destructTokenBalance, tokensToSend, "insufficient mint amount.");
+        assert.equal(destructTokenBalance, nftsToSend, "insufficient mint amount.");
+    });
 
         //contract functions can't be called after it has been destroyed
         try{
