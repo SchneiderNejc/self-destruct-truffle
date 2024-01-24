@@ -97,6 +97,17 @@ contract("Self Destruct", async accounts => {
             assert(true);
         }
     });
+
+    xit("contract selfdestructs upon receiving treshold amount tokens", async () => {
+        await destruct.destroy(owner);
+
+        //contract functions can't be called after it has been destroyed
+        try {
+            await destruct.destroy(owner);
+            assert.fail();
+        } catch (e) {
+            assert(true);
+        }
     });
 
     // 0. contract successfuly selfdestructs
