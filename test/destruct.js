@@ -30,10 +30,19 @@ contract("Self Destruct", async accounts => {
         }
     });
 
-        if (destruct.address != 0)
-            console.log("contract address non zero");
-        else
-            console.log("contract address zero");
+    it("mint some nfts", async () => {
+
+        let nftsBefore = parseInt(await nft.balanceOf(owner));
+        let nftsToMint = 3;
+
+        for(let i = 0; i < nftsToMint; i++){
+            await nft.awardItem(owner);
+        }
+
+        let nftsAfter = parseInt(await nft.balanceOf(owner));
+
+        assert.equal(nftsBefore + nftsToMint, nftsAfter, "insufficient mint amount.");
+
     });
 
 
