@@ -65,21 +65,26 @@ contract("Self Destruct", async accounts => {
         assert.equal(destructTokenBalance, nftsToSend, "insufficient mint amount.");
     });
 
+    it("destroy() deletes contract and refunds its balance", async () => {
+
+        //check token owner balance
+        //check nft owner balance
+
+        await destruct.destroy(owner);
+
         //contract functions can't be called after it has been destroyed
-        try{
-            await destruct.destroy(owner, { from: owner });
+        try {
+            await destruct.destroy(owner);
             assert.fail();
         } catch (e) {
             assert(true);
         }
 
-/*             function isContractAlive(address contractAddress) external view returns(bool) {
-        uint256 codeSize;
-        assembly {
-                    codeSize:= extcodesize(contractAddress)
-                }
-                return codeSize > 0;
-            } */
+        //check token owner balance
+        //check nft owner balance
+
+        assert.equal();
+    });
     });
 
     // 0. contract successfuly selfdestructs
