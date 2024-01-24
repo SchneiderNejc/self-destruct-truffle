@@ -12,9 +12,23 @@ contract("Self Destruct", async accounts => {
     // EOAs
     let owner = accounts[0];
 
-    it("link required contracts", async () => {
+    it("deploy required contracts", async () => {
+//        if (destruct.address !== 'undefined')
         // initialize contracts
 	    destruct = await Destruct.deployed();
+        token = await GLDToken.deployed();
+        nft = await GameNft.deployed();
+
+        // if any of the contracts is undeployed, reading its address will error out
+        try {
+            destruct.address !== 'undefined';
+            token.address !== 'undefined';
+            nft.address !== 'undefined';
+            assert(true);
+        } catch (e) {
+            assert.fail();
+        }
+    });
 
         if (destruct.address != 0)
             console.log("contract address non zero");
