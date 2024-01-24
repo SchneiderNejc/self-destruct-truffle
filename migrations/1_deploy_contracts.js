@@ -2,7 +2,7 @@ var Destruct = artifacts.require("./Destruct.sol");
 var GLDToken = artifacts.require("./GLDToken.sol");
 var GameNft = artifacts.require("./GameNft.sol");
 
-var initSupply = 10^6;
+var initSupply = 10**6; //one million
 
 
 async function getAccount(id) {
@@ -15,9 +15,6 @@ async function getAccount(id) {
 module.exports = async function (deployer, network) {
 
         var owner = getAccount(0);
-
-        console.log("attempting deploy");
-
         await deployer.deploy(Destruct).then(function () {
             console.log("Destruct contract was deployed at address: " + Destruct.address);
         });
