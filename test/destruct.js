@@ -1,11 +1,13 @@
-const { assert } = require("console");
-
 let Destruct = artifacts.require("./Destruct.sol");
+let GLDToken = artifacts.require("./GLDToken.sol");
+let GameNft = artifacts.require("./GameNft.sol");
 
 contract("Self Destruct", async accounts => {
 
     // contracts
-    let destruct = null;
+    let destruct;
+    let token;
+    let nft;
 
     // EOAs
     let owner = accounts[0];
