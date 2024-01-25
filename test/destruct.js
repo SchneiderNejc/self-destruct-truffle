@@ -15,9 +15,9 @@ contract("Self Destruct", async accounts => {
     it("deploy required contracts", async () => {
 //        if (destruct.address !== 'undefined')
         // initialize contracts
-	    destruct = await Destruct.deployed();
         token = await GLDToken.deployed();
         nft = await GameNft.deployed();
+        destruct = await Destruct.deployed(token.address);
 
         // if any of the contracts is undeployed, reading its address will error out
         try {
