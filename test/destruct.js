@@ -46,23 +46,23 @@ contract("Self Destruct", async accounts => {
     });
 
 
-    xit("contract can receive tokens and nfts", async () => {
+    it("contract can receive tokens and nfts", async () => {
 
         let tokensToSend = 1000;
         let nftsToSend = 1;
 
         for (let i = 0; i < nftsToSend; i++) {
             // may need to approve first. Do approveForAll above the loop.
-            await nft.transfer(destruct.address, i+1); //id starts with 1?
+            await nft.transferFrom(owner, destruct.address, i+1); //id starts with 1?
         }
 
-        await token.transfer(destruct.address, tokensTosend);
+         await token.transfer(destruct.address, tokensToSend);
 
-        destructTokenBalance = parseInt(await destruct.balanceOf(owner));
-        destructNftsBalance = parseInt(await destruct.balanceOf(owner));
+        destructTokenBalance = parseInt(await token.balanceOf(destruct.address));
+        destructNftBalance = parseInt(await nft.balanceOf(destruct.address));
         //ownerNftBalance
-        assert.equal(destructTokenBalance, tokensToSend, "insufficient mint amount.");
-        assert.equal(destructTokenBalance, nftsToSend, "insufficient mint amount.");
+        assert.equal(destructTokenBalance, tokensToSend, "insufficient tokens amount.");
+        assert.equal(destructNftBalance, nftsToSend, "insufficient nfts amount.");
     });
 
     it("destroy() deletes contract and refunds its balance", async () => {
