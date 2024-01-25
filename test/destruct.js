@@ -65,28 +65,12 @@ contract("Self Destruct", async accounts => {
         assert.equal(destructNftBalance, nftsToSend, "insufficient nfts amount.");
     });
 
-    it("destroy() deletes contract and refunds its balance", async () => {
+    it("destroy() deletes contract and refunds its tokens", async () => {
 
-        //check token owner balance
-        //check nft owner balance
+        //check balance
+        destructTokenBalance = parseInt(await token.balanceOf(destruct.address));
+        ownerTokenBalanceBefore = parseInt(await token.balanceOf(owner));
 
-        await destruct.destroy(owner);
-
-        //contract functions can't be called after it has been destroyed
-        try {
-            await destruct.destroy(owner);
-            assert.fail();
-        } catch (e) {
-            assert(true);
-        }
-
-        //check token owner balance
-        //check nft owner balance
-
-        assert.equal();
-    });
-
-    xit("contract selfdestructs upon receiving treshold amount nfts", async () => {
         await destruct.destroy(owner);
 
         //contract functions can't be called after it has been destroyed
