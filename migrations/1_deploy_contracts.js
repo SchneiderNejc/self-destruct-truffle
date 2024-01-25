@@ -15,9 +15,7 @@ async function getAccount(id) {
 module.exports = async function (deployer, network) {
 
         var owner = getAccount(0);
-        await deployer.deploy(Destruct).then(function () {
-            console.log("Destruct contract was deployed at address: " + Destruct.address);
-        });
+
 
         await deployer.deploy(GLDToken, initSupply).then(function () {
              console.log("GLDToken contract was deployed at address: " + GLDToken.address);
@@ -25,5 +23,9 @@ module.exports = async function (deployer, network) {
 
         await deployer.deploy(GameNft).then(function () {
             console.log("GameNft contract was deployed at address: " + GameNft.address);
+        });
+
+        await deployer.deploy(Destruct, GLDToken.address).then(function () {
+            console.log("Destruct contract was deployed at address: " + Destruct.address);
         });
 };
