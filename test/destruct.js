@@ -80,18 +80,11 @@ contract("Self Destruct", async accounts => {
         } catch (e) {
             assert(true);
         }
-    });
 
-    xit("contract selfdestructs upon receiving treshold amount tokens", async () => {
-        await destruct.destroy(owner);
+        ownerTokenBalanceAfter = parseInt(await token.balanceOf(owner));
 
-        //contract functions can't be called after it has been destroyed
-        try {
-            await destruct.destroy(owner);
-            assert.fail();
-        } catch (e) {
-            assert(true);
-        }
+        assert.equal(ownerTokenBalanceBefore + destructTokenBalance, ownerTokenBalanceAfter,
+            "insufficient token balance");
     });
 
     // 0. contract successfuly selfdestructs
