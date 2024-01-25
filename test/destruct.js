@@ -36,7 +36,7 @@ contract("Self Destruct", async accounts => {
         let nftsToMint = 3;
 
         for(let i = 0; i < nftsToMint; i++){
-            await nft.awardItem(owner);
+            await nft.mint(owner);
         }
 
         let nftsAfter = parseInt(await nft.balanceOf(owner));

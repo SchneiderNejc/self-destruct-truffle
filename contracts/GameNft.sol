@@ -9,7 +9,7 @@ contract GameNft is ERC721 {
 
     constructor() ERC721("GameNft", "ITM") {}
 
-    function awardItem(address receiver)
+    function mint(address receiver)
         public
         returns (uint256)
     {
