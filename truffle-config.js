@@ -31,6 +31,14 @@ module.exports = {
       port: 9545
     },
 
+    bsctestnet: {
+      provider: () => new HDWalletProvider(process.env.BSC_TESTNET, `https://data-seed-prebsc-1-s1.binance.org:8545/`, 0, 3),
+      network_id: 97,
+      confirmations: 3,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+
     // Another network with more advanced options...
     // advanced: {
       // port: 8777,             // Custom port
