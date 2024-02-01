@@ -2,7 +2,7 @@ var Destruct = artifacts.require("./Destruct.sol");
 var GLDToken = artifacts.require("./GLDToken.sol");
 var GameNft = artifacts.require("./GameNft.sol");
 
-var initSupply = 10**6; //one million
+var initSupply = 10**6 * 10**18; //one million (10^18 = convert wei to ether)
 
 
 async function getAccount(id) {
