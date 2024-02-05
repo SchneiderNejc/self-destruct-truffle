@@ -44,12 +44,12 @@ let init = async function (networkId) {
 
     async function transfer() {
         console.log(`transfering...`);
-        await Token.transfer(receiver, amount);
+        await token.transfer(receiver, amount);
         console.log(`${amount} tokens sent to ${receiver}`);
     }
 
     async function balanceOf(address) {
-        var amount = parseInt(await Token.balanceOf(address));
+        var amount = parseInt(await token.balanceOf(address));
         console.log(`${amount} tokens are owned by ${address}`);
     }
 
