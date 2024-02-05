@@ -28,7 +28,7 @@ let init = async function (networkId) {
     //--------------------------------------------------
 
     let sender = accounts[0];
-    let receiver = sender;
+    let receiver = "0x948962dbc28B7f83fBFd5Ae9812c7a1c94E00E30"; //address[1]
     let amount = 50;  
 
     //--------------------------------------------------
