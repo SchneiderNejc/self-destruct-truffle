@@ -15,6 +15,7 @@ async function getAccount(id) {
 module.exports = async function (deployer, network) {
 
         var owner = getAccount(0);
+        var gldToken = "0x9f1DEd9BC243cB2fec733d0E280aECb9f6dA6E2a";
 
 
         await deployer.deploy(GLDToken, initSupply).then(function () {
