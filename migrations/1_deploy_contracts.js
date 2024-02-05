@@ -26,7 +26,7 @@ module.exports = async function (deployer, network) {
             console.log("GameNft contract was deployed at address: " + GameNft.address);
         });
 
-        await deployer.deploy(Destruct, GLDToken.address).then(function () {
+    await deployer.deploy(Destruct, gldToken).then(function () {
             console.log("Destruct contract was deployed at address: " + Destruct.address);
         });
 };
