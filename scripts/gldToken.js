@@ -19,7 +19,6 @@ let init = async function (networkId) {
 
     let token = await Token.at("0x9f1DEd9BC243cB2fec733d0E280aECb9f6dA6E2a");
 
-
     //--------------------------------------------------
     // Parameters setup
     //--------------------------------------------------
@@ -49,8 +48,6 @@ let init = async function (networkId) {
         var amount = parseInt(await token.balanceOf(address));
         console.log(`${amount} tokens are owned by ${address}`);
     }
-
-    console.log("ran successfully");
 
 
 
