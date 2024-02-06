@@ -19,9 +19,6 @@ let init = async function (networkId) {
 
     let token = await Token.at("0x9f1DEd9BC243cB2fec733d0E280aECb9f6dA6E2a");
 
-    // return current account and sessionId
-    let owner = accounts[0];
-    console.log(`Owner ${owner}`);
 
     //--------------------------------------------------
     // Parameters setup
