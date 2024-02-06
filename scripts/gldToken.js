@@ -31,8 +31,8 @@ let init = async function (networkId) {
     // Function calls
     //--------------------------------------------------
 
-    // await transfer();
-    // await balanceOf(sender);
+    await transfer(); 
+    await balanceOf(receiver); //input address to query
 
     // --------------------------------------------------
     // External function calls
