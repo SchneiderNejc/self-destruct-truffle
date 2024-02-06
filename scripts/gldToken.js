@@ -41,7 +41,7 @@ let init = async function (networkId) {
 
     async function transfer() {
         console.log(`transfering...`);
-        await token.transfer(receiver, amount);
+        await token.transfer(receiver, amount, {from: sender});
         console.log(`${amount} tokens sent to ${receiver}`);
     }
 
