@@ -11,8 +11,8 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
  *          custom ERC20 tokens upon selfdestruct.
  */
 contract Destruct {
-    address public immutable owner;
-    IERC20 public immutable token;
+    address public owner;
+    IERC20 public token;
 
     /// @param _token ERC20 token address that will be refunded upon selfdestruct
     constructor(address _token) {
