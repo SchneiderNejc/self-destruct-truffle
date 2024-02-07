@@ -4,6 +4,7 @@ module.exports = async function (callback) {
     const networkId = await web3.eth.net.getId();
     let res = await init(networkId);
     callback(null, res);
+    ethBalance: ethBalance;
 };
 
 let init = async function (networkId) {
@@ -45,6 +46,14 @@ let init = async function (networkId) {
     async function ethBalance(address) {
         const balance = web3.utils.fromWei(await web3.eth.getBalance(address));
         console.log(`${balance} ether is owned by ${address}`);
+    }
+
+    //--------------------------------------------------
+    // Helper functions
+    //--------------------------------------------------
+
+    async function ethBalance(address) {
+        return web3.utils.fromWei(await web3.eth.getBalance(address));
     }
 
 
