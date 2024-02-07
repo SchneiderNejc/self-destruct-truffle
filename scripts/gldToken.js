@@ -32,8 +32,8 @@ let init = async function (networkId) {
     // Function calls
     //--------------------------------------------------
 
-    await transfer(); 
-    await balanceOf(receiver); //input address to query
+    // await transfer(); 
+    await printBalance(sender);
 
     // --------------------------------------------------
     // External function calls
@@ -45,9 +45,9 @@ let init = async function (networkId) {
         console.log(`${amount} tokens sent to ${receiver}`);
     }
 
-    async function balanceOf(address) {
-        var amount = parseInt(await token.balanceOf(address));
-        console.log(`${amount} tokens are owned by ${address}`);
+    async function printBalance(address) {
+        const balance = await balanceOf(address);
+        console.log(`${balance} tokens are owned by ${address}`);
     }
 
     //--------------------------------------------------
