@@ -28,8 +28,8 @@ let init = async function (networkId) {
     // Function calls
     //--------------------------------------------------
 
-    await transferEth(); 
-    await ethBalance(receiver); //update query address here
+    //await transferEth(); 
+    await printEthBalance(receiver);
 
     // --------------------------------------------------
     // External function calls
@@ -43,8 +43,8 @@ let init = async function (networkId) {
         console.log(`${web3.utils.fromWei((amountWei))} Ether sent to ${receiver}`);
     }
 
-    async function ethBalance(address) {
-        const balance = web3.utils.fromWei(await web3.eth.getBalance(address));
+    async function printEthBalance(address) {
+        const balance = await ethBalance(address);
         console.log(`${balance} ether is owned by ${address}`);
     }
 
