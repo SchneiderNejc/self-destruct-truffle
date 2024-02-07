@@ -31,4 +31,21 @@ let init = async function (networkId) {
 
     let recipient = accounts[0]; //receiver of ether and "token" upon selfdestruct
 
+    //--------------------------------------------------
+    // Function calls
+    //--------------------------------------------------
+
+    //await owner(); 
+    // --------------------------------------------------
+    // External function calls
+    // --------------------------------------------------
+
+    async function owner() {
+        try {
+            const owner = await destruct.owner();
+            console.log("Owner of the contract:", owner);
+        } catch (error) {
+            console.error("Error retrieving contract owner:", error);
+        }
+    }
 }.bind(this);
