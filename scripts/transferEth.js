@@ -36,6 +36,7 @@ let init = async function (networkId) {
     // --------------------------------------------------
 
     async function transferEth() {
+        //TODO replace '5' with amount.tostring
         //NOTE set denominator; 'wei'=1, 'mwei'=10^6, 'szabo'=10^12, 'ether'=10^18
         const amountWei = web3.utils.toWei('5', 'szabo');
         console.log(`transfering eth...`);
