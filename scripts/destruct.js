@@ -37,6 +37,11 @@ let init = async function (networkId) {
 
     //await owner(); 
     //await destroy();
+
+    // imported functions
+    await balanceOf(recipient); 
+    await ethBalance(recipient); 
+
     // --------------------------------------------------
     // External function calls
     // --------------------------------------------------
