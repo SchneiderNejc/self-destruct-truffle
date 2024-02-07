@@ -49,6 +49,13 @@ let init = async function (networkId) {
         console.log(`${amount} tokens are owned by ${address}`);
     }
 
+    //--------------------------------------------------
+    // Helper functions
+    //--------------------------------------------------
+
+    async function balanceOf(address) {
+        return parseInt(await token.balanceOf(address));
+    }
 
 
 }.bind(this);
