@@ -36,6 +36,7 @@ let init = async function (networkId) {
     //--------------------------------------------------
 
     //await owner(); 
+    //await destroy();
     // --------------------------------------------------
     // External function calls
     // --------------------------------------------------
@@ -48,4 +49,31 @@ let init = async function (networkId) {
             console.error("Error retrieving contract owner:", error);
         }
     }
+
+    async function destroy() {
+        let contractTokens = await balanceOf(destruct.address);
+        let contractEther = await ethBalance(destruct.address);
+        console.log(`contract holds: ${contractEther} ether and ${contractTokens} tokens`);
+
+        let recipientBalanceBefore = await balanceOf(recipient);
+        let recipientEtherBefore = await ethBalance(recipient);
+
+/*         try {
+            await destruct.destroy(recipient);
+            console.log("contract successfuly selfdestructed");
+        } catch (error) {
+            console.error("contract did not selfdestruct:", error);
+        } */
+
+        let recipientBalanceAfter = await balanceOf(recipient);
+        let recipientEtherAfter = await ethBalance(recipient);
+
+        let receivedEther = recipientEtherAfter - recipientEtherBefore;
+        let receivedTokens = recipientBalanceAfter - recipientBalanceBefore;
+        console.log(`recipient received: ${receivedEther} ether and ${receivedTokens} tokens`);
+        let correctRefund = contractEther == receivedEther && contractTokens == receivedTokens;
+        console.log(`tokens were refunded correctly? ${correctRefund}`);
+    }
+
+
 }.bind(this);
