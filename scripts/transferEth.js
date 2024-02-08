@@ -47,6 +47,7 @@ let init = async function (networkId) {
         console.log(transaction);
         let value = transaction.value;
         console.log(value);
+        console.log(`${web3.utils.fromWei((value))}`);
         console.log(`${web3.utils.fromWei((amountWei))} Ether sent to ${receiver}`);
     }
 
