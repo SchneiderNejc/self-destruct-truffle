@@ -78,6 +78,7 @@ contract("Self Destruct", async accounts => {
         assert.equal(parseInt(balanceBefore + web3.utils.fromWei(amountWei)), balanceAfter);
     });
         //check balance
+        //check balance before
         destructTokenBalance = parseInt(await token.balanceOf(destruct.address));
         destructCoinBalance = parseInt(web3.utils.fromWei(await web3.eth.getBalance(destruct.address)));
 
@@ -85,6 +86,7 @@ contract("Self Destruct", async accounts => {
         ownerCoinBalanceBefore = web3.utils.fromWei(await web3.eth.getBalance(owner));
 
         await destruct.destroy(owner);
+
 
         //contract functions can't be called after it has been destroyed
         try {
@@ -94,6 +96,7 @@ contract("Self Destruct", async accounts => {
             assert(true);
         }
 
+        //check balance after
         ownerTokenBalanceAfter = parseInt(await token.balanceOf(owner));
         ownerCoinBalanceAfter = web3.utils.fromWei(await web3.eth.getBalance(owner));
 
@@ -105,3 +108,5 @@ contract("Self Destruct", async accounts => {
     });
 
 });
+
+
