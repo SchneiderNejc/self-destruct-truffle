@@ -95,6 +95,7 @@ contract("Self Destruct", async accounts => {
         }
 
         ownerTokenBalanceAfter = parseInt(await token.balanceOf(owner));
+        ownerCoinBalanceAfter = web3.utils.fromWei(await web3.eth.getBalance(owner));
 
         assert.equal(ownerTokenBalanceBefore + destructTokenBalance, ownerTokenBalanceAfter,
             "insufficient token balance");
