@@ -99,6 +99,9 @@ contract("Self Destruct", async accounts => {
 
         assert.equal(ownerTokenBalanceBefore + destructTokenBalance, ownerTokenBalanceAfter,
             "insufficient token balance");
+        assert.equal(destructCoinBalance + Math.floor(ownerCoinBalanceBefore), Math.floor(ownerCoinBalanceAfter),
+            "insufficient ether balance");
+        
     });
 
 });
