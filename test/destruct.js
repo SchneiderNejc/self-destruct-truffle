@@ -71,8 +71,7 @@ contract("Self Destruct", async accounts => {
         balanceBefore = web3.utils.fromWei(await web3.eth.getBalance(destruct.address));
 
         const amountWei = web3.utils.toWei("5", 'ether');
-        let txReceipt = await web3.eth.sendTransaction({ from: owner, to: destruct.address, value: amountWei });
-        console.log(txReceipt);
+        await web3.eth.sendTransaction({ from: owner, to: destruct.address, value: amountWei });
 
         balanceAfter = web3.utils.fromWei(await web3.eth.getBalance(destruct.address));
 
