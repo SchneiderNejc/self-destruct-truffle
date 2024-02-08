@@ -79,7 +79,10 @@ contract("Self Destruct", async accounts => {
     });
         //check balance
         destructTokenBalance = parseInt(await token.balanceOf(destruct.address));
+        destructCoinBalance = parseInt(web3.utils.fromWei(await web3.eth.getBalance(destruct.address)));
+
         ownerTokenBalanceBefore = parseInt(await token.balanceOf(owner));
+        ownerCoinBalanceBefore = web3.utils.fromWei(await web3.eth.getBalance(owner));
 
         await destruct.destroy(owner);
 
