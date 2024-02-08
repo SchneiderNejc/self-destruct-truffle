@@ -41,6 +41,8 @@ let init = async function (networkId) {
         console.log(`transfering eth...`);
         let receipt = await web3.eth.sendTransaction({ from: sender, to: receiver, value: amountWei });
         console.log(receipt);
+        let hash = receipt.transactionHash;
+        console.log(hash);
         console.log(`${web3.utils.fromWei((amountWei))} Ether sent to ${receiver}`);
     }
 
