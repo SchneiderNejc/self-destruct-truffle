@@ -65,7 +65,6 @@ contract("Self Destruct", async accounts => {
         assert.equal(destructNftBalance, nftsToSend, "insufficient nfts amount.");
     });
 
-    it("destroy() deletes contract and refunds its tokens", async () => {
     it("contract can receive ether", async () => {
 
         balanceBefore = web3.utils.fromWei(await web3.eth.getBalance(destruct.address));
@@ -77,7 +76,9 @@ contract("Self Destruct", async accounts => {
 
         assert.equal(parseInt(balanceBefore + web3.utils.fromWei(amountWei)), balanceAfter);
     });
-        //check balance
+
+
+    it("destroy() deletes contract and refunds its tokens and ether", async () => {
         //check balance before
         destructTokenBalance = parseInt(await token.balanceOf(destruct.address));
         destructCoinBalance = parseInt(web3.utils.fromWei(await web3.eth.getBalance(destruct.address)));
