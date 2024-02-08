@@ -39,14 +39,8 @@ let init = async function (networkId) {
         //NOTE set denominator; 'wei'=1, 'mwei'=10^6, 'szabo'=10^12, 'ether'=10^18
         const amountWei = web3.utils.toWei(amount.toString(), 'szabo');
         console.log(`transfering eth...`);
-        let receipt = await web3.eth.sendTransaction({ from: sender, to: receiver, value: amountWei });
-        console.log(receipt);
-        let hash = receipt.transactionHash;
-        console.log(hash);
-        let transaction = await web3.eth.getTransaction(hash);
-        console.log(transaction);
-        let value = transaction.value;
-        console.log(value);
+        let txHash = (await web3.eth.sendTransaction({ from: sender, to: receiver, value: amountWei })).transactionHash;
+        let value = (await web3.eth.getTransaction(txHash)).value;
         console.log(`${web3.utils.fromWei((value))}`);
         console.log(`${web3.utils.fromWei((amountWei))} Ether sent to ${receiver}`);
     }
