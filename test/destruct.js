@@ -66,7 +66,18 @@ contract("Self Destruct", async accounts => {
     });
 
     it("destroy() deletes contract and refunds its tokens", async () => {
+    it("contract can receive ether", async () => {
 
+        balanceBefore = web3.utils.fromWei(await web3.eth.getBalance(destruct.address));
+
+        const amountWei = web3.utils.toWei("5", 'ether');
+        let txReceipt = await web3.eth.sendTransaction({ from: owner, to: destruct.address, value: amountWei });
+        console.log(txReceipt);
+
+        balanceAfter = web3.utils.fromWei(await web3.eth.getBalance(destruct.address));
+
+        assert.equal(parseInt(balanceBefore + web3.utils.fromWei(amountWei)), balanceAfter);
+    });
         //check balance
         destructTokenBalance = parseInt(await token.balanceOf(destruct.address));
         ownerTokenBalanceBefore = parseInt(await token.balanceOf(owner));
