@@ -13,14 +13,14 @@ module.exports = async function (deployer, network) {
 
 
         await deployer.deploy(GLDToken, initSupply).then(function () {
-             console.log("GLDToken contract was deployed at address: " + GLDToken.address);
+             console.log("GLDToken deployed at: " + GLDToken.address);
         });
 
         await deployer.deploy(GameNft).then(function () {
-            console.log("GameNft contract was deployed at address: " + GameNft.address);
+            console.log("GameNft deployed at: " + GameNft.address);
         });
 
-    await deployer.deploy(Destruct, gldToken).then(function () {
-            console.log("Destruct contract was deployed at address: " + Destruct.address);
+    await deployer.deploy(Destruct, GLDToken.address).then(function () {
+            console.log("Destruct deployed at: " + Destruct.address);
         });
 };
