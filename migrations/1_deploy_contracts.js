@@ -5,16 +5,10 @@ var GameNft = artifacts.require("./GameNft.sol");
 var initSupply = 10**6 * 10**18; //one million (10^18 = convert wei to ether)
 
 
-async function getAccount(id) {
-
-    let accounts = await web3.eth.getAccounts();
-    return accounts[id];
-}
-
-
 module.exports = async function (deployer, network) {
 
-        var owner = getAccount(0);
+        let owner = (await web3.eth.getAccounts())[0];
+        console.log("owner: " ,owner);
         var gldToken = "0x9f1DEd9BC243cB2fec733d0E280aECb9f6dA6E2a";
 
 
