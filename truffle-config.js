@@ -39,6 +39,12 @@ module.exports = {
       skipDryRun: true    //simulates faster migrations, but unrealistic behavioud; true for testnet, false for mainnet. Default false.
     },
 
+
+    sepolia: {
+      provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://sepolia.infura.io/v3/" + process.env.INFURA_KEY, 0, 3),
+      network_id: '11155111',
+      skipDryRun: true
+    },
     // Another network with more advanced options...
     // advanced: {
       // port: 8777,             // Custom port
