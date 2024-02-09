@@ -39,6 +39,11 @@ module.exports = {
       skipDryRun: true    //simulates faster migrations, but unrealistic behavioud; true for testnet, false for mainnet. Default false.
     },
 
+    goerli: {
+      provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://goerli.infura.io/v3/" + process.env.INFURA_KEY, 0, 3),
+      network_id: '5',
+      skipDryRun: true
+    },
 
     sepolia: {
       provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://sepolia.infura.io/v3/" + process.env.INFURA_KEY, 0, 3),
