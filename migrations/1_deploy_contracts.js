@@ -31,3 +31,11 @@ module.exports = async function (deployer, network) {
         contractNames.push("Destruct");
         contractAddresses.push(Destruct.address);
     });
+
+    // Print deployed addresses
+    console.log("Deployed contracts:");
+    for (let i = 0; i < contractNames.length; i++) {
+        console.log(contractNames[i] + " deployed at: " + contractAddresses[i]);
+    }
+    console.log();
+};
