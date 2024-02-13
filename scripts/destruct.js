@@ -1,8 +1,4 @@
-let Token = artifacts.require("GLDToken.sol");
 let Destruct = artifacts.require("Destruct.sol");
-
-const { ethBalance } = require('./transferEth.js');
-const { balanceOf } = require('./gldToken.js');
 
 let accounts;
 
@@ -80,5 +76,16 @@ let init = async function (networkId) {
         console.log(`tokens were refunded correctly? ${correctRefund}`);
     }
 
+    //--------------------------------------------------
+    // Helper functions
+    //--------------------------------------------------
+
+    async function ethBalance(address) {
+        return web3.utils.fromWei(await web3.eth.getBalance(address));
+    }
+
+    async function balanceOf(address) {
+        return parseInt(await token.balanceOf(address));
+    }
 
 }.bind(this);
