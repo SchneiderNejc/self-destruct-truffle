@@ -6,7 +6,6 @@ module.exports = async function (callback) {
     const networkId = await web3.eth.net.getId();
     let res = await init(networkId);
     callback(null, res);
-    balanceOf: balanceOf;
 };
 
 let init = async function (networkId) {
