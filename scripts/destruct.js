@@ -1,4 +1,5 @@
 let Destruct = artifacts.require("Destruct.sol");
+let Token = artifacts.require("GLDToken.sol");
 
 let accounts;
 
