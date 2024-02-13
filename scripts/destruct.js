@@ -56,12 +56,12 @@ let init = async function (networkId) {
         let recipientBalanceBefore = await balanceOf(recipient);
         let recipientEtherBefore = await ethBalance(recipient);
 
-/*         try {
+        try {
             await destruct.destroy(recipient);
             console.log("contract successfuly selfdestructed");
         } catch (error) {
             console.error("contract did not selfdestruct:", error);
-        } */
+        }
 
         let recipientBalanceAfter = await balanceOf(recipient);
         let recipientEtherAfter = await ethBalance(recipient);
