@@ -40,8 +40,9 @@ let init = async function (networkId) {
         console.log(`transfering eth...`);
         let txHash = (await web3.eth.sendTransaction({ from: sender, to: receiver, value: amountWei })).transactionHash;
         let value = (await web3.eth.getTransaction(txHash)).value;
-        console.log(`${web3.utils.fromWei((value))}`);
-        console.log(`${web3.utils.fromWei((amountWei))} Ether sent to ${receiver}`);
+        value = web3.utils.fromWei(value);
+
+        console.log(`${value} Ether sent to ${receiver}`);
     }
 
     async function printEthBalance(address) {
