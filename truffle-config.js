@@ -11,6 +11,10 @@ module.exports = {
       port: 9545
     },
 
+        //--------------------------------------------------
+        // Test networks
+        //--------------------------------------------------
+
     bsctestnet: {
       provider: () => new HDWalletProvider(process.env.MNEMONIC, `https://data-seed-prebsc-1-s1.binance.org:8545/`, 0, 3),
       network_id: 97,
@@ -31,6 +35,9 @@ module.exports = {
       skipDryRun: true
     },
 
+        //--------------------------------------------------
+        // L2 networks
+        //--------------------------------------------------
 
 
   },
