@@ -5,6 +5,7 @@ require('dotenv').config();
 module.exports = {
 
   networks: {
+
     development: {
       network_id: "*",
       host: '127.0.0.1',
@@ -18,9 +19,11 @@ module.exports = {
     bsctestnet: {
       provider: () => new HDWalletProvider(process.env.MNEMONIC, `https://data-seed-prebsc-1-s1.binance.org:8545/`, 0, 3),
       network_id: 97,
-      confirmations: 3,   //finalization; no. of blocks confirmed after tx was successful. Default 0.
+      confirmations: 1,   //finalization; no. of blocks confirmed after tx was successful. 0 for testnets, 1-2 for main net. Default 0.
       timeoutBlocks: 200, //timeout no. of blocks for tx to be confirmed. After set no. tx is considered failed (by truffle). Default null.
-      skipDryRun: true    //simulates faster migrations, but unrealistic behavioud; true for testnet, false for mainnet. Default false.
+      skipDryRun: true    //simulates faster migrations, but unrealistic behaviour; true for testnet, false for mainnet. Default false.
+      // gas: 8500000,           // Off for testnet, on for main net. Value can be found from test migration
+      // gasPrice: 20000000000,  // Off for testnet, on for main net. Use current price from Etherscan, GasNow, or Eth Gas Station
     },
 
     goerli: {
