@@ -1,11 +1,6 @@
 var HDWalletProvider = require('@truffle/hdwallet-provider');
 require('dotenv').config();
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 module.exports = {
   /**
